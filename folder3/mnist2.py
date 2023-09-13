@@ -9,3 +9,4 @@ print("In mnist2")
 some_digit = X[0]
 some_digit_image = some_digit.reshape(28,28)
 print(some_digit_image)
+test
