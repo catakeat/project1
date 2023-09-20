@@ -20,6 +20,6 @@ some_digit = X.loc[0]
 some_digit_image = some_digit.values.reshape(28,28)
 print(some_digit_image)
 
-plt.imshow(some_digit_image, cmap = "binary", interpolation="nearest")
+plt.imshow(some_digit_image, cmap="binary", interpolation="nearest")
 plt.axis("off")
 plt.show()
