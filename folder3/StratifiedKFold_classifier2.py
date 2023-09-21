@@ -9,12 +9,10 @@ np.set_printoptions(threshold=np.inf, linewidth=np.inf)
 digits = load_digits()
 print("shape",digits.data.shape)
 print("target",len(digits.target))
-#kfolds = StratifiedKFold(n_splits=3,shuffle=True)
-kfolds = KFold(n_splits=3,shuffle=True)
+kfolds = StratifiedKFold(n_splits=3,shuffle=True)
+#kfolds = KFold(n_splits=3,shuffle=True)
 
 for train_index,test_index in kfolds.split(digits.data,digits.target):
-    print("Train",train_index[:30])
-    print("Test",test_index[:30])
-    '''X_train =  digits.data[train_index]
-    print(digits.data[train_index][:10])'''
-    #print(X_train)
+    #print("Train",train_index[:30])
+    #print("Test",test_index[:30])
+    X_train ,X_test,y_train,y_test = digits.data[train_index],digits.data[test_index],digits.target[train_index], digits.target[test_index]
