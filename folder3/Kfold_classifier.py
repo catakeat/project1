@@ -13,26 +13,16 @@ print("shape",digits.data.shape)
 print("target",len(digits.target))
 X_train,X_test,y_train,y_test=train_test_split(digits.data, digits.target, test_size=0.3)
 
-lr = LogisticRegression(max_iter=1000)
-lr.fit(X_train,y_train)
-print(lr.score(X_test,y_test))
-
-svm = SVC()
-svm.fit(X_train,y_train)
-print(svm.score(X_test,y_test))
-
-rfc = RandomForestClassifier(n_estimators=40)
-rfc.fit(X_train,y_train)
-print(rfc.score(X_test,y_test))
-
 kf=KFold(n_splits=3)
 print(kf)  #KFold(n_splits=3, random_state=None, shuffle=False)
+for train_index,test_index in kf.split([1,2,3,4,5,6,7,8,9]):
+    print(train_index,test_index)
 
-def clasifica(classifier):
-    classifier.fit(X_train,y_train)
-    print("Din clasifica",classifier.score(X_test,y_test))
+kf=KFold(n_splits=3,shuffle=True)
+print(kf)  #KFold(n_splits=3, random_state=None, shuffle=False)
+for train_index,test_index in kf.split([1,2,3,4,5,6,7,8,9]):
+    print(train_index,test_index)
 
-clasifica(svm)
 
 
 
